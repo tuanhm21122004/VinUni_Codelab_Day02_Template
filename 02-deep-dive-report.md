@@ -3,8 +3,8 @@
 > **Báo cáo phân tích sâu dự án AI Scoping (Phase 3 & Phase 5)**
 > * **Đơn vị thành viên:** **Vinmec Healthcare System — Hệ thống Y tế Hàn lâm Quốc tế Vinmec**
 > * **Dự án:** **ClinicalRx — Trợ lý AI Khởi tạo Đơn thuốc & Vòng lặp Tự học hỏi từ Phản hồi Bác sĩ (AI-First Self-Improving Prescription Agent)**
-> * **Người thực hiện:** **Hoàng Minh Tuấn** — AI Product Engineer tại Vin Smart Future
-> * **Nhánh Git cá nhân:** `hoang_minh_tuan`
+> * **Người thực hiện:** **Đào Ngọc Bình Thiên** — AI Product Engineer tại Vin Smart Future
+> * **Nhánh Git cá nhân:** `thiendao` 
 
 ---
 
@@ -61,7 +61,7 @@ Trong các ca bệnh mạn tính phức tạp (bệnh nhân cao tuổi mắc đ�
 | **3. Bottleneck** | **Bước 3 & 4 (mất 12 phút):** Thao tác gõ máy cơ học tìm kiếm 5–8 mã thuốc rời rạc; thiếu hệ thống tự động ghi nhận kinh nghiệm lâm sàng của bác sĩ chuyên khoa đầu ngành để nâng cao chất lượng kê đơn toàn viện. |
 | **4. Business & Clinical Impact** | Bác sĩ mất hơn 60% thời gian chỉ để gõ máy tính, giảm chất lượng tư vấn cho người bệnh. Tỷ lệ chờ khám kéo dài (45–60 phút). Đặc biệt, kiến thức lâm sàng quý báu khi bác sĩ chỉnh sửa đơn thuốc bị trôi mất (Data Loss) thay vì được tái sử dụng để hoàn thiện hệ thống AI. |
 | **5. Success Metric** | 1. **Thời gian kê đơn:** Giảm từ 15 phút xuống **dưới 2 phút/ca**.<br>2. **Tỷ lệ chấp thuận ban đầu:** Bác sĩ chấp thuận $\ge 80\%$ đơn gợi ý.<br>3. **Hiệu quả vòng lặp học hỏi (Feedback Loop Velocity):** Tỷ lệ đơn thuốc được bác sĩ chấp thuận tăng dần theo thời gian: **Tháng 1 đạt 80% ──> Tháng 3 đạt $\ge 90\%$** nhờ Agent học từ các ca chỉnh sửa.<br>4. **Tỷ lệ tham gia phản hồi (Feedback Compliance):** $\ge 85\%$ các trường hợp bác sĩ từ chối/thay đổi thuốc có kèm lý do lâm sàng có cấu trúc trong vòng 3 giây. |
-| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Tự động đọc dữ liệu EHR, đối chiếu Big Data và danh mục kho thuốc để soạn đơn nháp (`[DRAFT_ONLY]`); tự động ghi nhận các điều chỉnh của bác sĩ kèm lý do phản biện để cập nhật vào *Bộ nhớ kinh nghiệm lâm sàng (In-Context Learning & Few-Shot Vector Store)*.<br>🛑 **TUYỆT ĐỐI CẤM:** AI **không được tự ý xuất thuốc xuống kho**; Bắt buộc 100% có chữ ký số của Bác sĩ. **CẤM AI tự động cập nhật trọng số mô hình lõi trực tiếp (Unsupervised Live Weight Updating)** nhằm ngăn chặn hiện tượng dữ liệu rác/thiên vị (Data Poisoning) — Mọi bài học kinh nghiệm mới phải qua bộ lọc kiểm duyệt (Curation Pipeline) của Hội đồng Dược lâm sàng Vinmec định kỳ hằng tuần. |
+| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Tự động đọc dữ liệu EHR, đối chiếu Big Data và danh mục kho thuốc để soạn đơn nháp (`[DRAFT_ONLY]`); tự động ghi nhận các điều chỉnh của bác sĩ kèm lý do phản biện để cập nhật vào *Bộ nhớ kinh nghiệm lâm sàng (In-Context Learning & Few-Shot Vector Store)*.<br>🛑 **TUYỆT ĐỐI CẤM:** AI **không được tự ý xuất thuốc xuống kho**; Bắt buộc 100% có chữ ký số của Bác sĩ. **CẤM AI tự động cập nhật trọng số mô hình lõi trực tiếp (Unsupervised Live Weight Updating)** nhằm ngăn chặn hiện tượng dữ liệu rác/thiên vị (Data Poisoning) — Mọi bài học kinh nghiệm mới phải qua bộ lọc kiểm duyệt (Curation Pipeline) của Hội đồng Dược lâm sàng Vinmec định kỳ hằng tuần. | 
 
 ---
 
