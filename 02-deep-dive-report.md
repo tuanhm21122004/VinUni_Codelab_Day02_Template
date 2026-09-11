@@ -14,7 +14,7 @@ Tại các Bệnh viện Đa khoa Quốc tế Vinmec (Times City / Central Park)
 
 Trong các ca bệnh mạn tính phức tạp (bệnh nhân cao tuổi mắc đồng thời tăng huyết áp, đái tháo đường Type 2, rối loạn lipid máu, suy thận mạn giai đoạn 3):
 * **Quy trình cũ (Thủ công & Bị động):** Bác sĩ phải ngồi nhớ phác đồ, gõ tìm thủ công từng loại trong hàng nghìn danh mục thuốc, nhập từng hàm lượng, liều dùng, tính toán suy thận. Thao tác này ngốn tới **12–15 phút/bệnh nhân**.
-* **Đột phá 1 — AI-First Proactive Drafter:** Ngay khi có chẩn đoán (ICD-10) và xét nghiệm, AI khai thác Big Data hàng triệu ca bệnh thành công tại Vinmec để **chủ động soạn sẵn đơn thuốc tối ưu**. Bác sĩ chỉ mất 1–2 phút để kiểm tra và duyệt.
+* **Đột phá 1 — AI-First Proactive Drafter (Cơ chế Dual-RAG Cá nhân hóa):** Ngay khi có chẩn đoán (ICD-10), AI không chỉ truy xuất Big Data hàng trăm nghìn ca bệnh tương tự tại Vinmec, mà **đặc biệt truy xuất toàn bộ Lịch sử Điều trị Cá nhân của chính bệnh nhân đó**: các đơn thuốc cũ đã dùng, tiền sử dung nạp/đáp ứng, liều lượng tối ưu trước đây, và xu hướng chức năng lọc cầu thận (eGFR) theo thời gian. Nhờ đó, AI **soạn sẵn đơn thuốc mẫu được cá nhân hóa tuyệt đối (Personalized Precision Dosing)** mà không bị kê sai lệch hay reset lại liều. Bác sĩ chỉ mất 1–2 phút để kiểm tra và duyệt.
 * **Đột phá 2 — Continuous Rejection Learning Loop (Vòng lặp tự học hỏi từ đơn bị từ chối):** Bác sĩ không chỉ là người duyệt, mà còn là **Người thầy huấn luyện Agent**. Khi bác sĩ thay đổi một loại thuốc hoặc từ chối đơn thuốc AI gợi ý, hệ thống kích hoạt giao diện thu thập lý do từ chối (Quick Clinical Feedback trong 3 giây). Agent sẽ ghi nhận phản hồi này vào **Bộ nhớ lâm sàng dài hạn (Clinical Memory)** để **tự học hỏi và rút kinh nghiệm**, giúp các lần gợi ý sau chính xác và cá nhân hóa hơn!
 
 ---
@@ -61,7 +61,7 @@ Trong các ca bệnh mạn tính phức tạp (bệnh nhân cao tuổi mắc đ�
 | **3. Bottleneck** | **Bước 3 & 4 (mất 12 phút):** Thao tác gõ máy cơ học tìm kiếm 5–8 mã thuốc rời rạc; thiếu hệ thống tự động ghi nhận kinh nghiệm lâm sàng của bác sĩ chuyên khoa đầu ngành để nâng cao chất lượng kê đơn toàn viện. |
 | **4. Business & Clinical Impact** | Bác sĩ mất hơn 60% thời gian chỉ để gõ máy tính, giảm chất lượng tư vấn cho người bệnh. Tỷ lệ chờ khám kéo dài (45–60 phút). Đặc biệt, kiến thức lâm sàng quý báu khi bác sĩ chỉnh sửa đơn thuốc bị trôi mất (Data Loss) thay vì được tái sử dụng để hoàn thiện hệ thống AI. |
 | **5. Success Metric** | 1. **Thời gian kê đơn:** Giảm từ 15 phút xuống **dưới 2 phút/ca**.<br>2. **Tỷ lệ chấp thuận ban đầu:** Bác sĩ chấp thuận $\ge 80\%$ đơn gợi ý.<br>3. **Hiệu quả vòng lặp học hỏi (Feedback Loop Velocity):** Tỷ lệ đơn thuốc được bác sĩ chấp thuận tăng dần theo thời gian: **Tháng 1 đạt 80% ──> Tháng 3 đạt $\ge 90\%$** nhờ Agent học từ các ca chỉnh sửa.<br>4. **Tỷ lệ tham gia phản hồi (Feedback Compliance):** $\ge 85\%$ các trường hợp bác sĩ từ chối/thay đổi thuốc có kèm lý do lâm sàng có cấu trúc trong vòng 3 giây. |
-| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Tự động đọc dữ liệu EHR, đối chiếu Big Data và danh mục kho thuốc để soạn đơn nháp (`[DRAFT_ONLY]`); tự động ghi nhận các điều chỉnh của bác sĩ kèm lý do phản biện để cập nhật vào *Bộ nhớ kinh nghiệm lâm sàng (In-Context Learning & Few-Shot Vector Store)*.<br>🛑 **TUYỆT ĐỐI CẤM:** AI **không được tự ý xuất thuốc xuống kho**; Bắt buộc 100% có chữ ký số của Bác sĩ. **CẤM AI tự động cập nhật trọng số mô hình lõi trực tiếp (Unsupervised Live Weight Updating)** nhằm ngăn chặn hiện tượng dữ liệu rác/thiên vị (Data Poisoning) — Mọi bài học kinh nghiệm mới phải qua bộ lọc kiểm duyệt (Curation Pipeline) của Hội đồng Dược lâm sàng Vinmec định kỳ hằng tuần. |
+| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Tự động đọc dữ liệu EHR, truy xuất lịch sử dùng thuốc cá nhân (các đơn thuốc cũ, tiền sử dung nạp/thất bại điều trị, liều lượng tối ưu trước đây) kết hợp Big Data lâm sàng và danh mục kho thuốc để soạn **đơn nháp cá nhân hóa (`[DRAFT_ONLY]`)**; tự động ghi nhận các điều chỉnh của bác sĩ kèm lý do phản biện để cập nhật vào *Bộ nhớ kinh nghiệm lâm sàng (In-Context Learning & Few-Shot Vector Store)*.<br>🛑 **TUYỆT ĐỐI CẤM:** AI **không được tự ý xuất thuốc xuống kho**; Bắt buộc 100% có chữ ký số của Bác sĩ. **CẤM AI tự động cập nhật trọng số mô hình lõi trực tiếp (Unsupervised Live Weight Updating)** nhằm ngăn chặn hiện tượng dữ liệu rác/thiên vị (Data Poisoning) — Mọi bài học kinh nghiệm mới phải qua bộ lọc kiểm duyệt (Curation Pipeline) của Hội đồng Dược lâm sàng Vinmec định kỳ hằng tuần. |
 
 ---
 
@@ -87,10 +87,11 @@ Trong các ca bệnh mạn tính phức tạp (bệnh nhân cao tuổi mắc đ�
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
 │ Bước 1       │     │ Bước 2       │     │ Bước 3       │     │ Bước 4       │     │ Bước 5       │
 │ Bác sĩ chốt  │     │ 🔵 AI Agent  │     │ 🔵 Hiển thị  │     │ 🟢 Bác sĩ xem│     │ Bác sĩ bấm   │
-│ chẩn đoán    │ ──→ │ quét Big Data│ ──→ │ sẵn ĐƠN MẪU  │ ──→ │ lướt & quyết │ ──→ │ "Ký số & In" │
-│ mã ICD-10    │     │ + Bộ nhớ học │     │ tối ưu trên  │     │ định duyệt   │     │ (Đơn chính   │
-│              │     │ -> TỰ SOẠN   │     │ màn hình EHR │     │ hoặc chỉnh   │     │ thức xuất    │
-│ ⏱ 5 phút     │     │ ⏱ 2 giây     │     │ ⏱ Tức thì    │     │ sửa/từ chối  │     │ viện)        │
+│ chẩn đoán    │ ──→ │ DUAL-RAG:    │ ──→ │ sẵn ĐƠN MẪU  │ ──→ │ lướt & quyết │ ──→ │ "Ký số & In" │
+│ mã ICD-10    │     │ 1.Lịch sử cũ │     │ cá nhân hóa  │     │ định duyệt   │     │ (Đơn chính   │
+│              │     │ 2.Big Data   │     │ tối ưu trên  │     │ hoặc chỉnh   │     │ thức xuất    │
+│              │     │ -> TỰ SOẠN   │     │ màn hình EHR │     │ sửa/từ chối  │     │ viện)        │
+│ ⏱ 5 phút     │     │ ⏱ 2 giây     │     │ ⏱ Tức thì    │     │ ⏱ 1-2 phút ⚡│     │              │
 └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
                                                                        │
                                                                        ▼

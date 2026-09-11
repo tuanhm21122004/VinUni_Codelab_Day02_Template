@@ -35,9 +35,9 @@ Chọn lọc Top 3 bài toán tiềm năng nhất từ danh sách SCAN và hoàn
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #1                                       │
 │                                                             │
-│ Bài toán (1 câu): AI chủ động khai thác Big Data để khởi    │
-│ tạo sẵn đơn thuốc mẫu hoàn chỉnh cho bệnh nhân mạn tính,     │
-│ đồng thời ghi nhận phản hồi từ chối của bác sĩ để tự học.   │
+│ Bài toán (1 câu): AI chủ động khai thác Lịch sử Dùng thuốc  │
+│ Cá nhân kết hợp Big Data để khởi tạo sẵn đơn thuốc mẫu tối   │
+│ ưu cho người khám, đồng thời ghi nhận phản hồi để tự học.    │
 │ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
 │                     [x] Vinmec   [ ] Khác (Ghi rõ)________  │
 │                                                             │
@@ -51,7 +51,7 @@ Chọn lọc Top 3 bài toán tiềm năng nhất từ danh sách SCAN và hoàn
 │                                                             │
 │ Bước nào tốn thời gian/lỗi nhất? Bước 3 & 4 (⏱ 12 phút/ca)  │
 │ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2, 3 và 4        │
-│ (AI đi trước: Tự soạn đơn nháp + Tự học từ phản hồi sửa đổi)│
+│ (Dual-RAG: Truy xuất lịch sử cá nhân + Big Data soạn đơn)   │
 │                                                             │
 │ Đo thành công bằng gì (Metric có số)?                        │
 │   1. Giảm thời gian kê đơn từ 15 min ──> dưới 2 min/ca.     │
