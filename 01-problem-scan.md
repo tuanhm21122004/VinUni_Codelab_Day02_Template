@@ -1,12 +1,10 @@
 # Problem Scan & Quick Assessment — Vin Smart Future (Healthcare Edition)
 
-> **Báo cáo quét cơ hội & Đánh giá nhanh (Phase 1 & Phase 2 theo hướng dẫn README.md)**
-> * **Nhóm thực hiện (Team Contributors):**
->   1. **Hoàng Minh Tuấn** (Nhánh: `hoang_minh_tuan`) — Trưởng nhóm
->   2. **Đỗ Thái Sơn** (Nhánh: `do_thai_son`)
->   3. **Đào Ngọc Bình Thiên** (Nhánh: `thiendao`)
->   4. **Phong** (Nhánh: `phong`)
+> **File nộp bài cá nhân (Phase 1 & Phase 2 theo hướng dẫn README.md)**
+> * **Người thực hiện:** **Đặng Quốc Cường**
+> * **Vai trò:** AI Product Engineer tại Vin Smart Future
 > * **Đơn vị trọng tâm:** Vinmec Healthcare System (kết hợp các công ty thành viên Vingroup)
+> * **Nhánh Git cá nhân:** `cuong`
 
 ---
 

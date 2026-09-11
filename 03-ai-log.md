@@ -1,13 +1,10 @@
 # AI Interaction Log & Reflection — Nhật ký Tương tác & Phản ánh AI
 
-> **Nhật ký Tương tác & Phản ánh AI (Gate I3)**
-> * **Nhóm thực hiện (Team Contributors):**
->   1. **Hoàng Minh Tuấn** (Nhánh: `hoang_minh_tuan`) — Trưởng nhóm
->   2. **Đỗ Thái Sơn** (Nhánh: `do_thai_son`)
->   3. **Đào Ngọc Bình Thiên** (Nhánh: `thiendao`)
->   4. **Phong** (Nhánh: `phong`)
+> **File nộp bài cá nhân (Gate I3 — 15 điểm cá nhân)**
+> * **Người thực hiện:** **Đặng Quốc Cường**
+> * **Mã sinh viên / Nhánh:** `cuong`
 > * **Dự án:** ClinicalRx — AI-First Self-Improving Prescription Agent (Vinmec Healthcare)
-> * **Công cụ AI đồng hành:** Gemini 3.6 Flash / Google Antigravity Thought-Partner
+> * **Công cụ AI đồng hành:** Gemini 2.5 Flash / Google Antigravity Thought-Partner
 
 ---
 
