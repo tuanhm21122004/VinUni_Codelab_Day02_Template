@@ -10,58 +10,65 @@
 
 ## 🏛️ 1. Bối cảnh & Tư duy Đột phá: "AI-First" kết hợp "Continuous Feedback Loop"
 
-Tại các Bệnh viện Đa khoa Quốc tế Vinmec (Times City / Central Park), một bác sĩ ngoại trú chỉ có trung bình **15–20 phút cho một lượt khám** theo tiêu chuẩn quốc tế **JCI (Joint Commission International)**.
+Tại Vinmec, mỗi lượt khám bệnh nhân chỉ có 15–20 phút. Với các ca bệnh mạn tính phức tạp, 12–15 phút thường bị tiêu tốn cho tìm thuốc, nhập liệu, tính liều và kiểm tra tương tác, khiến bác sĩ ít thời gian hơn để quan sát triệu chứng sắc sảo, phát hiện bệnh ngầm và tư vấn cho bệnh nhân.
 
-Trong các ca bệnh mạn tính phức tạp (bệnh nhân cao tuổi mắc đồng thời tăng huyết áp, đái tháo đường Type 2, rối loạn lipid máu, suy thận mạn giai đoạn 3):
-* **Quy trình cũ (Thủ công & Bị động):** Bác sĩ phải ngồi nhớ phác đồ, gõ tìm thủ công từng loại trong hàng nghìn danh mục thuốc, nhập từng hàm lượng, liều dùng, tính toán suy thận. Thao tác này ngốn tới **12–15 phút/bệnh nhân**.
-* **Đột phá 1 — AI-First Proactive Drafter:** Ngay khi có chẩn đoán (ICD-10) và xét nghiệm, AI khai thác Big Data hàng triệu ca bệnh thành công tại Vinmec để **chủ động soạn sẵn đơn thuốc tối ưu**. Bác sĩ chỉ mất 1–2 phút để kiểm tra và duyệt.
-* **Đột phá 2 — Continuous Rejection Learning Loop (Vòng lặp tự học hỏi từ đơn bị từ chối):** Bác sĩ không chỉ là người duyệt, mà còn là **Người thầy huấn luyện Agent**. Khi bác sĩ thay đổi một loại thuốc hoặc từ chối đơn thuốc AI gợi ý, hệ thống kích hoạt giao diện thu thập lý do từ chối (Quick Clinical Feedback trong 3 giây). Agent sẽ ghi nhận phản hồi này vào **Bộ nhớ lâm sàng dài hạn (Clinical Memory)** để **tự học hỏi và rút kinh nghiệm**, giúp các lần gợi ý sau chính xác và cá nhân hóa hơn!
+ClinicalRx hướng tới mô hình AI-First để giảm tải công việc thủ công và giúp bác sĩ tập trung vào quyết định lâm sàng quan trọng hơn.
 
+* **Quy trình cũ (Thủ công & Bị động):**  
+  Bác sĩ phải tự đọc phác đồ, tìm thuốc, nhập từng loại thuốc, tính liều và rà soát dị ứng. Kết quả là thời gian khám bị chiếm bởi thao tác máy móc, không còn nhiều thời gian cho chẩn đoán và tư vấn.
+
+* **Đột phá 1 — AI-First Proactive Drafter:**  
+  AI sẽ đánh giá từng bệnh nhân theo chẩn đoán, xét nghiệm và dữ liệu điều trị tương tự, giúp đơn thuốc cá nhân hóa, chi tiết hơn và giảm tải cho bác sĩ.
+
+* **Đột phá 2 — Continuous Rejection Learning Loop:**  
+  Bác sĩ không chỉ duyệt đơn thuốc mà còn “dạy” Agent qua từng phản hồi. Agent học dần, giảm tải cho tuyến trên và hỗ trợ lan tỏa kiến thức đến tuyến dưới, giúp y tá, dược sĩ và người có trình độ thấp hơn ra quyết định gần với bác sĩ chuyên khoa hơn.
 ---
 
 ## 🏗️ 2. Current-State Workflow Mapping (Phase 3.1)
 
 ### 📊 Sơ đồ quy trình vận hành hiện tại:
+
 ![Current-State Workflow Diagram](04-workflow-diagram.png)
 
-### Chi tiết các bước quy trình thủ công:
+### Chi tiết quy trình hiện tại:
 
 ```text
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
 │ Bước 1       │     │ Bước 2       │     │ Bước 3       │     │ Bước 4       │
-│ Khám lâm sàng│     │ Tra cứu phác │     │ Gõ tìm & nhập│     │ Rà soát liều │
-│ & chẩn đoán  │ ──→ │ đồ điều trị  │ ──→ │ từng mã thuốc│ ──→ │ & chống chỉ  │
-│ bệnh (ICD-10)│     │ cho đa bệnh lý│    │ (5-8 loại)   │     │ định dị ứng  │
-│ Ai: Bác sĩ   │     │ Ai: Bác sĩ   │     │ Ai: Bác sĩ 🔴│     │ Ai: Bác sĩ 🔴│
+│ Khám lâm sàng│     │ Đọc & hiểu   │     │ Chọn thuốc   │     │ Kiểm tra     │
+│ và chẩn đoán │ ──→ │ hồ sơ bệnh   │ ──→ │ phù hợp      │ ──→ │ liều & dị ứng│
+│ bệnh nhân     │     │ lý bệnh nhân │     │ theo từng ca  │     │ theo thể trạng│
+│ Ai: Bác sĩ   │     │ Ai: Bác sĩ   │     │ Ai: Bác sĩ   │     │ Ai: Bác sĩ   │
 │ ⏱ 5 phút     │     │ ⏱ 3 phút     │     │ ⏱ 8 phút     │     │ ⏱ 4 phút     │
-│ In: Triệu chứng│   │ In: Guideline │    │ In: Tên thuốc│     │ In: eGFR, dị ứng│
-│ Out: ICD-10   │    │ Out: Ý tưởng  │    │ Out: Đơn gõ tay│   │ Out: Đơn hoàn tất│
+│ In: triệu     │     │ In: bệnh sử, │     │ In: thuốc    │     │ In: eGFR,    │
+│ chứng, xét   │     │ xét nghiệm,  │     │ có sẵn, bệnh│     │ dị ứng, bệnh │
+│ nghiệm       │     │ bệnh nền     │     │ nền          │     │ phụ          │
+│ Out: ICD-10  │     │ Out: hiểu     │     │ Out: draft   │     │ Out: đơn     │
+│              │     │ biết bệnh    │     │ đơn thuốc    │     │ hoàn chỉnh   │
 └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
                                                                        │
                                                                        ▼
                                                                 ┌──────────────┐
                                                                 │ Bước 5       │
-                                                                │ Ký duyệt     │
-                                                                │ & In đơn     │
+                                                                │ Duyệt & ký   │
+                                                                │ đơn thuốc    │
                                                                 │ Ai: Bác sĩ   │
                                                                 │ ⏱ 1 phút     │
                                                                 └──────────────┘
-🔴 = Bottlenecks: Bước 3 & Bước 4 ngốn tới 12 phút chỉ để gõ tìm thuốc và tính toán liều.
-⏱ Tổng thời gian kê đơn ca phức tạp: ~21 - 22 phút/lượt.
 ```
 
 ---
 
 ## 📋 3. Problem Statement (6-field) & Metrics (Phase 3.2)
 
-| Trường thông tin | Nội dung chi tiết chuẩn Vin Smart Future |
+| Trường thông tin | Nội dung chi tiết |
 |---|---|
-| **1. Actor / Operator** | Bác sĩ điều trị ngoại trú/nội trú (Người ra quyết định) & Hội đồng Dược lâm sàng Vinmec (Người giám sát học máy). |
-| **2. Current Workflow** | Bác sĩ nhập mã ICD-10, sau đó tự lục tìm danh mục kho viện, gõ từng dòng thuốc, tự tính toán giảm liều theo eGFR và kiểm tra dị ứng. Mất 12–15 phút chỉ cho khâu gõ đơn thuốc. Sau mỗi ca khám, nếu phác đồ có điểm chưa tối ưu, không có cơ chế lưu trữ để hệ sinh thái cùng học hỏi kinh nghiệm. |
-| **3. Bottleneck** | **Bước 3 & 4 (mất 12 phút):** Thao tác gõ máy cơ học tìm kiếm 5–8 mã thuốc rời rạc; thiếu hệ thống tự động ghi nhận kinh nghiệm lâm sàng của bác sĩ chuyên khoa đầu ngành để nâng cao chất lượng kê đơn toàn viện. |
-| **4. Business & Clinical Impact** | Bác sĩ mất hơn 60% thời gian chỉ để gõ máy tính, giảm chất lượng tư vấn cho người bệnh. Tỷ lệ chờ khám kéo dài (45–60 phút). Đặc biệt, kiến thức lâm sàng quý báu khi bác sĩ chỉnh sửa đơn thuốc bị trôi mất (Data Loss) thay vì được tái sử dụng để hoàn thiện hệ thống AI. |
-| **5. Success Metric** | 1. **Thời gian kê đơn:** Giảm từ 15 phút xuống **dưới 2 phút/ca**.<br>2. **Tỷ lệ chấp thuận ban đầu:** Bác sĩ chấp thuận $\ge 80\%$ đơn gợi ý.<br>3. **Hiệu quả vòng lặp học hỏi (Feedback Loop Velocity):** Tỷ lệ đơn thuốc được bác sĩ chấp thuận tăng dần theo thời gian: **Tháng 1 đạt 80% ──> Tháng 3 đạt $\ge 90\%$** nhờ Agent học từ các ca chỉnh sửa.<br>4. **Tỷ lệ tham gia phản hồi (Feedback Compliance):** $\ge 85\%$ các trường hợp bác sĩ từ chối/thay đổi thuốc có kèm lý do lâm sàng có cấu trúc trong vòng 3 giây. |
-| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Tự động đọc dữ liệu EHR, đối chiếu Big Data và danh mục kho thuốc để soạn đơn nháp (`[DRAFT_ONLY]`); tự động ghi nhận các điều chỉnh của bác sĩ kèm lý do phản biện để cập nhật vào *Bộ nhớ kinh nghiệm lâm sàng (In-Context Learning & Few-Shot Vector Store)*.<br>🛑 **TUYỆT ĐỐI CẤM:** AI **không được tự ý xuất thuốc xuống kho**; Bắt buộc 100% có chữ ký số của Bác sĩ. **CẤM AI tự động cập nhật trọng số mô hình lõi trực tiếp (Unsupervised Live Weight Updating)** nhằm ngăn chặn hiện tượng dữ liệu rác/thiên vị (Data Poisoning) — Mọi bài học kinh nghiệm mới phải qua bộ lọc kiểm duyệt (Curation Pipeline) của Hội đồng Dược lâm sàng Vinmec định kỳ hằng tuần. |
+| **1. Actor / Operator** | Bác sĩ điều trị, Dược sĩ lâm sàng và Hội đồng Dược lâm sàng Vinmec. |
+| **2. Current Workflow** | Bác sĩ phải đọc, tổng hợp và hiểu nhiều nguồn thông tin bệnh nhân (bệnh sử, xét nghiệm, bệnh nền, eGFR, dị ứng, thuốc đang dùng) để chọn thuốc phù hợp. Thông tin còn phân tán, khó liên kết và chưa được hỗ trợ bởi hệ thống tự động. |
+| **3. Bottleneck** | Khó khăn lớn nhất là không tối ưu được việc đọc hiểu hồ sơ bệnh lý và cá nhân hóa đơn thuốc. Hiện vẫn thiếu công cụ giúp tổng hợp dữ liệu bệnh nhân và đề xuất phác đồ phù hợp ngay trong thời điểm khám. |
+| **4. Business & Clinical Impact** | Bác sĩ phải tự suy luận nhiều, dễ bỏ sót yếu tố ẩn hoặc không cá nhân hóa đủ. Điều này làm giảm chất lượng phác đồ, tăng nguy cơ kê thuốc không tối ưu và khiến quá trình tư vấn bệnh nhân chưa đạt hiệu quả cao nhất. |
+| **5. Success Metric** | 1. Tăng độ chính xác trong đánh giá hồ sơ bệnh nhân.<br>2. Tỷ lệ bác sĩ chấp thuận đơn gợi ý ban đầu đạt $\ge 80\%$.<br>3. Đơn thuốc được cá nhân hóa tốt hơn theo từng bệnh nhân và từng thể trạng.<br>4. Tỷ lệ phản hồi bác sĩ có cấu trúc đạt $\ge 85\%$. |
+| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** tổng hợp EHR, đối chiếu dữ liệu, đề xuất đơn nháp có cá nhân hóa cho từng bệnh nhân.<br>🛑 **TUYỆT ĐỐI CẤM:** AI không được tự động xuất thuốc xuống kho; mọi quyết định cuối cùng phải có chữ ký số của bác sĩ. Mọi dữ liệu học mới đều phải qua bộ lọc kiểm duyệt của Hội đồng Dược lâm sàng Vinmec. |
 
 ---
 
@@ -74,32 +81,29 @@ Trong các ca bệnh mạn tính phức tạp (bệnh nhân cao tuổi mắc đ�
 
 ```text
                                        ┌─────────────────────────────────────────────────────────┐
-                                       │ 🧠 VÒNG LẶP TỰ HỌC HỎI (CONTINUOUS LEARNING LOOP)       │
-                                       │ Bác sĩ sửa/bỏ thuốc + Chọn lý do (⏱ 3 giây):            │
-                                       │ • "Tác dụng phụ dạ dày" / "Không dung nạp"              │
-                                       │ • "Phác đồ ưu tiên cho bệnh nhân suy tim"               │
-                                       │ ──> Đưa vào Bộ nhớ Dynamic Few-Shot Vector Store        │
-                                       │ ──> Agent học bài học mới cho lần gợi ý tiếp theo!      │
+                                       │ 🧠 VÒNG LẶP HỌC HỎI TỪ PHẢN HỒI BÁC SĨ               │
+                                       │ AI tổng hợp hồ sơ bệnh nhân, đề xuất đơn thuốc,         │
+                                       │ bác sĩ chỉnh sửa/lựa chọn lý do phản hồi               │
+                                       │ ──> Lưu vào Clinical Memory để cải thiện lần sau        │
                                        └─────────────────────────────────────────────────────────┘
                                                                     ▲
-                                                                    │ (Ghi nhận ca bị bác bỏ)
                                                                     │
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
 │ Bước 1       │     │ Bước 2       │     │ Bước 3       │     │ Bước 4       │     │ Bước 5       │
-│ Bác sĩ chốt  │     │ 🔵 AI Agent  │     │ 🔵 Hiển thị  │     │ 🟢 Bác sĩ xem│     │ Bác sĩ bấm   │
-│ chẩn đoán    │ ──→ │ quét Big Data│ ──→ │ sẵn ĐƠN MẪU  │ ──→ │ lướt & quyết │ ──→ │ "Ký số & In" │
-│ mã ICD-10    │     │ + Bộ nhớ học │     │ tối ưu trên  │     │ định duyệt   │     │ (Đơn chính   │
-│              │     │ -> TỰ SOẠN   │     │ màn hình EHR │     │ hoặc chỉnh   │     │ thức xuất    │
-│ ⏱ 5 phút     │     │ ⏱ 2 giây     │     │ ⏱ Tức thì    │     │ sửa/từ chối  │     │ viện)        │
+│ Bác sĩ chốt  │ ──→ │ AI đọc & hiểu │ ──→ │ AI đề xuất    │ ──→ │ Bác sĩ xem,  │ ──→ │ Bác sĩ ký số │
+│ chẩn đoán    │     │ hồ sơ bệnh   │     │ đơn thuốc     │     │ chỉnh sửa    │     │ & in đơn     │
+│ và mục tiêu  │     │ nhân: bệnh   │     │ cá nhân hóa   │     │ hoặc từ chối  │     │ chính thức   │
+│ điều trị     │     │ nền, xét     │     │ theo thể      │     │ thuốc         │     │              │
+│              │     │ nghiệm, eGFR  │     │ trạng bệnh   │     │               │     │              │
+│ ⏱ 5 phút     │     │ dị ứng, thuốc │     │ nhân         │     │ ⏱ 3 giây     │     │ ⏱ 1 phút    │
+│              │     │ đang dùng     │     │               │     │ phản hồi      │     │              │
 └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
                                                                        │
                                                                        ▼
                                                                 ↩️ Fallback:
-                                                                Nếu ca bệnh quá
-                                                                dị biệt (<70% độ
-                                                                tin cậy), AI chuyển
-                                                                về chế độ gõ tay
-                                                                để bảo vệ an toàn.
+                                                                Nếu độ tin cậy thấp,
+                                                                AI chuyển về chế độ
+                                                                gõ tay để đảm bảo an toàn.
 ```
 
 ---
